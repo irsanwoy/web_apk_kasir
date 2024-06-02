@@ -24,7 +24,7 @@
         }
     }
 
-    if(isset($_POST['tambah'])){
+    if(isset($_POST['tambahbarang'])){
         $namaproduk = $_POST['namaproduk'];
         $deskripsi = $_POST['deskripsi'];
         $harga = $_POST['harga'];
@@ -37,6 +37,21 @@
         }else{
             echo "<script>alert('data gagal ditambahkan');</script>";
             echo "<script>location='stok.php';</script>";
+        }
+    }
+
+    if(isset($_PSOT['tambahpelanggan'])){
+        $namapelanggan = $_POST['namapelanggan'];
+        $alamat = $_POST['alamat'];
+        $telepon = $_POST['telepon'];
+
+        $insert = mysqli_query($conn, "INSERT INTO pelanggan (nama_pelanggan, alamat, no_telp) VALUES ('$namapelanggan', '$alamat','$telepon')");
+        if($insert){
+            echo "<script>alert('data berhasil ditambahkan');</script>";
+            echo "<script>location='pelanggan.php';</script>";
+        }else{
+            echo "<script>alert('data gagal ditambahkan');</script>";
+            echo "<script>location='pelanggan.php';</script>";
         }
     }
     

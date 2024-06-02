@@ -52,7 +52,7 @@
                                 <div class="sb-nav-link-icon"><i class="fa-brands fa-first-order-alt"></i></div>
                                 Order
                             </a>
-                            <a class="nav-link" href="stok.pho">
+                            <a class="nav-link" href="stok.php">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-boxes-stacked"></i></div>
                                 Stok Barang
                             </a>
@@ -103,7 +103,7 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Stok Barang</h1>
+                        <h1 class="mt-4">Data Pelanggan</h1>
                         <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Selamat Datang</li>
                         </ol>
@@ -111,7 +111,7 @@
                         <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Jumlah Barang</div>
+                                    <div class="card-body">Jumlah Pelanggan</div>
                                 </div>
                             </div>
                             </div>
@@ -119,7 +119,7 @@
                             <div class="row">
                             <div class="col-xl-3 col-md-6">
                                 <button type="button" class="btn btn-info mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                        Tambah Barang
+                                        Tambah Pelanggan
                                 </button>
                             </div>
                             </div>
@@ -130,7 +130,7 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                Data Barang
+                                Data Pelanggan
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -195,17 +195,16 @@
 
             <form method="post">
             <div class="modal-body">
-                <input type="text" name="namaproduk" class="form-control mt-2" placeholder="Nama produk">
-                <input type="text" name="deskripsi" class="form-control mt-2" placeholder="Deskripsi">
-                <input type="text" name="harga" class="form-control mt-2" placeholder="Harga produk">
-                <input type="num" name="stok" class="form-control mt-2" placeholder="Stok produk">
+                <input type="text" name="namapelanggan" class="form-control mt-2" placeholder="Nama pelanggan">
+                <input type="text" name="no_telepon" class="form-control mt-2" placeholder="No telepon">
+                <input type="text" name="alamat" class="form-control mt-2" placeholder="Alamat">
             </div>
             
 
 
             <div class="modal-footer">
                 <button type="button" name="batal" class="btn btn-secondary" data-bs-dismiss="modal">batal</button>
-                <button type="submit" name="tambahbarang" class="btn btn-primary">tambah</button>
+                <button type="submit" name="tambahpelanggan" class="btn btn-primary">tambah</button>
             </div>
             </form>
 

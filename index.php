@@ -1,3 +1,7 @@
+<?php
+    require_once 'function.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -54,6 +58,10 @@
                             <a class="nav-link" href="masuk.php">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-parachute-box"></i></div>
                                 Barang Masuk
+                            </a>
+                            <a class="nav-link" href="pelanggan.php">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
+                                Kelola Pelanggan
                             </a>
                             <a class="nav-link" href="logout.php">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-right-from-bracket"></i></div>
@@ -113,6 +121,13 @@
                             <!-- end card -->
 
                         </div>
+                        <div class="row">
+                            <div class="col-xl-3 col-md-6">
+                                <button type="button" class="btn btn-info mb-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                        Tambah Pesanan
+                                </button>
+                            </div>
+                            </div>
                       
                         <div class="card mb-4">
                             <div class="card-header">
@@ -123,59 +138,34 @@
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>ID Pesanan</th>
+                                            <th>Tanggal</th>
+                                            <th>Jumlah</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
+                                    <?php 
+                                           
+                                        $get = mysqli_query($conn, "SELECT * FROM `order`");
+                                            while($p = mysqli_fetch_array($get)){
+                                                $idorder = $p['id_order'];
+                                                $tanggal = $p['tanggal'];
+                                        ?>
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
+                                            <td><?= $idorder ?></td>
+                                            <td><?= $tanggal ?></td>
+                                            <td>Jumlah</td>
+                                            <td>Edit || Delete</td>
                                         </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>63</td>
-                                            <td>2011/07/25</td>
-                                            <td>$170,750</td>
-                                        </tr>
-                                    </tbody>
+                                    <?php }; ?>
+div                                    </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
                 </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Copyright &copy; Your Website 2023</div>
-                            <div>
-                                <a href="#">Privacy Policy</a>
-                                &middot;
-                                <a href="#">Terms &amp; Conditions</a>
-                            </div>
-                        </div>
-                    </div>
-                </footer>
+            
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
@@ -186,4 +176,37 @@
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="js/datatables-simple-demo.js"></script>
     </body>
+
+
+
+
+     <!-- Modal -->
+     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <form method="post">
+            <div class="modal-body">
+                <input type="text" name="namaproduk" class="form-control mt-2" placeholder="Nama produk">
+                <input type="text" name="deskripsi" class="form-control mt-2" placeholder="Deskripsi">
+                <input type="text" name="harga" class="form-control mt-2" placeholder="Harga produk">
+                <input type="num" name="stok" class="form-control mt-2" placeholder="Stok produk">
+            </div>
+            
+
+
+            <div class="modal-footer">
+                <button type="button" name="batal" class="btn btn-secondary" data-bs-dismiss="modal">batal</button>
+                <button type="submit" name="tambah" class="btn btn-primary">tambah</button>
+            </div>
+            </form>
+
+
+            </div>
+        </div>
+        </div>
 </html>
