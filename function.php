@@ -40,7 +40,7 @@
         }
     }
 
-    if(isset($_PSOT['tambahpelanggan'])){
+    if(isset($_POST['tambahpelanggan'])){
         $namapelanggan = $_POST['namapelanggan'];
         $alamat = $_POST['alamat'];
         $telepon = $_POST['telepon'];

@@ -11,7 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Data Barang</title>
+        <title>Data Pelanggan</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
@@ -137,31 +137,27 @@
                                     <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Produk</th>
-                                            <th>Deskripsi</th>
-                                            <th>Harga</th>
-                                            <th>Stok</th>
+                                            <th>Nama Pelanggan</th>
+                                            <th>No Pelanggan</th>
+                                            <th>Alamat</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     
                                     <tbody>
                                         <?php 
-                                            $get = mysqli_query($conn, "SELECT * FROM produk");
+                                            $get = mysqli_query($conn, "SELECT * FROM pelanggan");
                                             $i = 1;
                                             while($p = mysqli_fetch_array($get)){
-                                                $namaproduk = $p['nama_produk'];
-                                                $deskripsi = $p['deskripsi'];
-                                                $harga = $p['harga'];
-                                                $stok = $p['stok'];
-
+                                                $namapelanggan = $p['nama_pelanggan'];
+                                                $notelepon = $p['no_telp'];
+                                                $alamat = $p['alamat'];
                                         ?>
                                         <tr>
                                             <td><?= $i++ ?></td>
-                                            <td><?= $namaproduk ?></td>
-                                            <td><?= $deskripsi ?></td>
-                                            <td><?= $harga ?></td>
-                                            <td><?= $stok ?></td>
+                                            <td><?= $namapelanggan ?></td>
+                                            <td><?= $notelepon ?></td>
+                                            <td><?= $alamat ?></td>
                                             <td>Edit || Delete</td>
                                         </tr>
                                     <?php }; ?>
@@ -196,7 +192,7 @@
             <form method="post">
             <div class="modal-body">
                 <input type="text" name="namapelanggan" class="form-control mt-2" placeholder="Nama pelanggan">
-                <input type="text" name="no_telepon" class="form-control mt-2" placeholder="No telepon">
+                <input type="text" name="telepon" class="form-control mt-2" placeholder="No telepon">
                 <input type="text" name="alamat" class="form-control mt-2" placeholder="Alamat">
             </div>
             
